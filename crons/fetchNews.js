@@ -108,16 +108,16 @@ for (let feedName in feeds) {
                 [guid, article.title, article.author, article.link, image, article.published, content], (error, results, fields) => {
                     queries--;
 
-                    if (error) return console.log(error, content);
+                    if (error) return console.log(error);
 
                     queries++;
 
                     connection.query('INSERT INTO article_category (id, category) VALUE(?, ?)', [guid, feedName], (error, results, fields) => {
                         queries--;
-                        if (queries === 0) connection.end();
+                        if (queries === 0) setTimeout(function(){ connection.end(); }, 10000);
                     });
 
-                    console.log(`Insterting article: ${guid}`);
+                    console.log(`Insterting or updating article: ${guid}`);
                 });
             }
         });

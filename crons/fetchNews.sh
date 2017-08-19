@@ -1,4 +1,4 @@
 #!/bin/bash
 
-cd /home/dennis/backend/crons
-node fetchPuntNews.js
+cd /home/node/mijnavans/server/crons
+node fetchNews.js
