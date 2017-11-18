@@ -66,6 +66,10 @@ module.exports = {
            [
               "HbCS",
               "Centraal Station"
+           ],
+           [
+              "HbHel",
+              "Helftheuvelpassage"
            ]
         ],
         "Tilburg":[

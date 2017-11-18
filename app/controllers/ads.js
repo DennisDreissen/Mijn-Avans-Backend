@@ -14,8 +14,12 @@ module.exports = {
             return reply({shouldDisplayAds: true});
         }
 
-        require('../models/ads').exists(request.params.id || null, (displayAds) => {
-            return reply({shouldDisplayAds: displayAds});
+        require('../models/ads').exists("*", (displayAds) => {
+            if (displayAds == false) return reply({shouldDisplayAds: displayAds});
+
+            require('../models/ads').exists(request.params.id || null, (displayAds) => {
+            	return reply({shouldDisplayAds: displayAds});
+        	});
         });
     }
 };
