@@ -22,15 +22,16 @@ const constants = require('./constants');
 
 const server = new Hapi.Server();
 const config = {
-    port: (process.env.APP_ENV === 'development') ? 8080 : 8000
+    port: (process.env.APP_ENV === 'development') ? 9000 : 9000,
+    address: 'localhost'
 };
 
-if (process.env.APP_ENV === 'production') {
+/* if (process.env.APP_ENV === 'production') {
     config.tls = {
         key: fs.readFileSync(process.env.KEY),
         cert: fs.readFileSync(process.env.CERT)
     };
-}
+} */
 
 server.connection(config);
 
