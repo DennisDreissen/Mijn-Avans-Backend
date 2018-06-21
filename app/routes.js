@@ -17,21 +17,21 @@ module.exports = (server) => {
     // Returns all the stops.
     server.route({
         method: 'GET',
-        path: '/api/v0/transport/stops',
+        path: '/v0/transport/stops',
         handler: require('./controllers/transport').stops
     });
 
     // Returns all the lines passing a certain stop.
     server.route({
         method: 'GET',
-        path: '/api/v0/transport/lines/{stopId}',
+        path: '/v0/transport/lines/{stopId}',
         handler: require('./controllers/transport').lines
     });
 
     // Returns the journey data from a certain line.
     server.route({
         method: 'GET',
-        path: '/api/v0/transport/lines/{stopId}/journey/{journeyId}',
+        path: '/v0/transport/lines/{stopId}/journey/{journeyId}',
         handler: require('./controllers/transport').journey
     });
 
@@ -42,14 +42,14 @@ module.exports = (server) => {
      // Returns all the articles from a category.
      server.route({
          method: 'GET',
-         path: '/api/v0/news/articles/category/{category}',
+         path: '/v0/news/articles/category/{category}',
          handler: require('./controllers/news').articles
      });
 
      // Returns the article from an id.
      server.route({
          method: 'GET',
-         path: '/api/v0/news/articles/{articleId}',
+         path: '/v0/news/articles/{articleId}',
          handler: require('./controllers/news').article
      });
 
@@ -60,7 +60,7 @@ module.exports = (server) => {
       // Returns version information for the app.
       server.route({
           method: 'GET',
-          path: '/api/v0/version',
+          path: '/v0/version',
           handler: require('./controllers/version').get
       });
 
@@ -70,14 +70,14 @@ module.exports = (server) => {
       // **
       server.route({
           method: 'GET',
-          path: '/api/v0/messages',
+          path: '/v0/messages',
           handler: require('./controllers/messages').get
       });
 
       // Returns messages for the app in a certain language and for a certain platform.
       server.route({
           method: 'GET',
-          path: '/api/v0/messages/{language}/{platform?}',
+          path: '/v0/messages/{language}/{platform?}',
           handler: require('./controllers/messages').get
       });
 
@@ -88,7 +88,7 @@ module.exports = (server) => {
       // Returns a boolean whether ads should be shown to the user.
       server.route({
           method: 'GET',
-          path: '/api/v0/ads/{id}',
+          path: '/v0/ads/{id}',
           handler: require('./controllers/ads').shouldShow
       });
 
@@ -99,7 +99,7 @@ module.exports = (server) => {
       // Creates a new log enty in the database.
       server.route({
           method: 'POST',
-          path: '/api/v0/log',
+          path: '/v0/log',
           handler: require('./controllers/log').create
       });
 };
