@@ -13,9 +13,9 @@ const mysql = require('../MySQL').pool;
 module.exports = {
     create: (data, callback) => {
         mysql.getConnection((error, connection) => {
-            if (error) return;
-            
-            mysql.query('INSERT INTO log (class, comment, details) VALUES (?, ?, ?)', [data.class, data.comment, data.details], function(error) {
+            connection.query('INSERT INTO log (class, comment, details) VALUES (?, ?, ?)', [data.class, data.comment, data.details], function(error) {
+                connection.release();
+
                 if (error) {
                     callback(false);
                 } else {
