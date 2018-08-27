@@ -13,6 +13,8 @@ const mysql = require('../MySQL').pool;
 module.exports = {
     exists: (id, callback) => {
         mysql.getConnection((error, connection) => {
+            if (error) return console.log(error);
+            
             connection.query("SELECT * FROM ads_user WHERE id = ?", [id], (error, rows) => {
                 connection.release();
 

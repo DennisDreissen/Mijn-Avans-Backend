@@ -16,6 +16,8 @@ module.exports = {
         if (!platform) platform = 'iOS';
 
         mysql.getConnection((error, connection) => {
+            if (error) return console.log(error);
+
             connection.query("SELECT * FROM message WHERE language = ? AND platform = ?", [language, platform], (error, rows) => {
                 connection.release();
 

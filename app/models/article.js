@@ -14,6 +14,8 @@ const moment = require('moment');
 module.exports = {
     getArticlesFromCategory: (category, callback) => {
         mysql.getConnection((error, connection) => {
+            if (error) return console.log(error);
+
             connection.query("SELECT article.*, article_category.category FROM article JOIN article_category ON article.id = article_category.id WHERE category = ? ORDER BY date DESC LIMIT 20", [category], (error, rows) => {
                 connection.release();
 
@@ -32,6 +34,8 @@ module.exports = {
 
     getArticleFromId: (id, callback) => {
         mysql.getConnection((error, connection) => {
+            if (error) return console.log(error);
+
             connection.query("SELECT message FROM article WHERE id = ?", [id], (error, rows) => {
                 connection.release();
 

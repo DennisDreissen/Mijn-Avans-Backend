@@ -13,6 +13,8 @@ const mysql = require('../MySQL').pool;
 module.exports = {
     getAll: (callback) => {
         mysql.getConnection((error, connection) => {
+            if (error) return console.log(error);
+
             connection.query("SELECT * FROM version", (error, rows) => {
                 connection.release();
                 callback(error, rows);
