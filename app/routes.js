@@ -64,6 +64,13 @@ module.exports = (server) => {
           handler: require('./controllers/version').get
       });
 
+    // Returns details about popups to show.
+    server.route({
+        method: 'GET',
+        path: '/v0/popup',
+        handler: require('./controllers/popup').get
+    });
+
       // Returns messages for the app, defaults to the Dutch language.
       // **
       // ** DEPRECATED
