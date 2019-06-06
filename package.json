@@ -19,7 +19,6 @@
       "mysql":"^2.13.0",
       "request":"^2.79.0",
       "sax":"^1.2.2",
-      "sleep":"^5.1.0",
       "underscore":"^1.8.3"
    },
    "repository":{  
